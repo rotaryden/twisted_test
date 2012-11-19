@@ -131,11 +131,13 @@ class TestPage(Resource):
                     });});</script>"""\
                "</body></html>"
 
-root = Resource()
-root.putChild("test", TestPage(redis_pool, mysql_pool))
-factory = Site(root)
+def main():
+    root = Resource()
+    root.putChild("test", TestPage(redis_pool, mysql_pool))
+    factory = Site(root)
+    
+    reactor.listenTCP(8880, factory)
+    reactor.run()
 
-reactor.listenTCP(8880, factory)
-reactor.run()
-
-
+if __name__ == "__main__":
+    main()
