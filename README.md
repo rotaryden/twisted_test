@@ -1,6 +1,6 @@
 #Twisted Test
 
-##To run the test task:
+##To run:
 
 1) Set proper user/pass for MySQL -> test.py, mysql_pool definition
 
